@@ -113,17 +113,38 @@
       border-left: 3px solid var(--gold-accent);
       padding-left: 20px;
     }
-    .teacher-portrait {
+    
+    /* ПРОФЕССИОНАЛЬНАЯ ОБРЕЗКА ФОТО УЧИТЕЛЯ */
+    .teacher-frame {
+      position: relative;
       width: 100%;
+      aspect-ratio: 1 / 1;
       border-radius: 32px;
+      overflow: hidden;
       background: #1C2E4A;
       box-shadow: 0 25px 40px -12px rgba(0,0,0,0.5);
       border: 1px solid rgba(201,160,61,0.4);
-      transition: 0.3s;
-      object-fit: cover;
-      aspect-ratio: 1 / 1;
-      display: block;
+      transition: all 0.3s ease;
     }
+    
+    .teacher-frame:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 30px 50px -15px rgba(0,0,0,0.6);
+      border-color: rgba(201,160,61,0.7);
+    }
+    
+    .teacher-portrait {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%; /* Фокус на лице (регулируйте от 10% до 30%) */
+      transition: transform 0.5s ease;
+    }
+    
+    .teacher-frame:hover .teacher-portrait {
+      transform: scale(1.05);
+    }
+    
     .about-grid {
       display: flex;
       flex-wrap: wrap;
@@ -366,17 +387,13 @@
         <a href="#contact-form" class="btn-primary">Sign in for a trial lesson →</a>
       </div>
       <div class="hero-visual reveal">
-        <!-- 
-          ⭐ ЗАМЕНИТЕ ССЫЛКУ НИЖЕ НА РЕАЛЬНУЮ ССЫЛКУ С ИЗОБРАЖЕНИЕМ УЧИТЕЛЯ ⭐
-          Варианты:
-          1. Превью любого видео с канала: https://img.youtube.com/vi/ID_ВИДЕО/hqdefault.jpg
-          2. Прямая ссылка на фото (если есть)
-          3. Оставьте как есть — будет показана стилизованная заглушка с символикой канала
-        -->
-        <img class="teacher-portrait" 
-             src="https://yt3.googleusercontent.com/7Fg2wfzis91lNwwjhlj77GrTSyEcBI0TRQ8m2EEjs7mwLL4Kl5QgnMzvhveCwRYtJY2G5YOF=w1707-fcrop64=1,00005a57ffffa5a8-k-c0xffffffff-no-nd-rj" 
-             alt="Преподаватель English Dragon Club"
-             onerror="this.src='https://via.placeholder.com/600x600/1C2E4A/C9A03D?text=English+Dragon+Teacher&font=Montserrat'">
+        <!-- ПРОФЕССИОНАЛЬНЫЙ КОНТЕЙНЕР С ОБРЕЗКОЙ ФОТО -->
+        <div class="teacher-frame">
+          <img class="teacher-portrait" 
+               src="https://img.youtube.com/vi/gH8e_eVkGHE/maxresdefault.jpg" 
+               alt="English Dragon Teacher - innovative English educator"
+               onerror="this.src='https://via.placeholder.com/600x600/1C2E4A/C9A03D?text=English+Dragon'">
+        </div>
       </div>
     </div>
   </section>
@@ -394,18 +411,129 @@
         <div class="about-stats reveal">
           <div class="stat-card"><div class="stat-number">15+</div><div class="stat-label">Years of experience</div></div>
           <div class="stat-card"><div class="stat-number">180+</div><div class="stat-label">Successful students</div></div>
-          <div class="stat-card"><div class="stat-number">20K+</div><div class="stat-label">YouTube community</div></div>
+          <div class="stat-card"><div class="stat-number">50K+</div><div class="stat-label">YouTube community</div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Остальные секции (Experties, Case Results, Reviews, Contact, Footer) полностью сохранены -->
-  <!-- Они идентичны предыдущей версии, но для краткости я не дублирую их здесь полностью. -->
-  <!-- В финальном файле они должны быть, как в исходном коде ранее. -->
+  <section id="expertise">
+    <div class="container">
+      <h2 class="section-title reveal">Expertise & Services</h2>
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-icon">🌐</div>
+          <h3>Online Learning</h3>
+          <p>Live interactive sessions from anywhere. Get personalized feedback, digital whiteboards, and after-class materials — flexibility without losing human connection.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🎧</div>
+          <h3>Immersive Technologies</h3>
+          <p>AI-powered speaking simulations, VR conversation scenarios, and real-time pronunciation analysis. Master real-life situations with confidence.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">⚡</div>
+          <h3>Fast Progress</h3>
+          <p>Structured CEFR-aligned track combined with fluency sprints. Most students reach next level in 8–12 weeks. Track your growth week by week.</p>
+        </div>
+        <div class="service-card reveal">
+          <div class="service-icon">🎯</div>
+          <h3>Business & Exam Prep</h3>
+          <p>IELTS/TOEFL/CAE or corporate communication — advanced strategies, mock exams and negotiation skills that produce tangible results.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-results">
+    <div class="container">
+      <h2 class="section-title reveal">Real Results — Student Transformations</h2>
+      <div class="cases-grid">
+        <div class="case-item reveal">
+          <div class="case-title">📘 From A2 to B2 (Upper Intermediate)</div>
+          <div class="case-detail"><strong>Duration:</strong> 5 months intensive track</div>
+          <div class="case-detail"><strong>Focus:</strong> Fluency & conversational depth</div>
+          <div><span class="badge-result">Result: B2 Certified · IELTS 6.0 → 7.0</span></div>
+          <div class="case-detail" style="margin-top: 12px;">💬 "Now I lead global meetings without fear."</div>
+        </div>
+        <div class="case-item reveal">
+          <div class="case-title">🚀 Beginner (A1) to Pre-Intermediate (B1)</div>
+          <div class="case-detail"><strong>Duration:</strong> 7 months</div>
+          <div class="case-detail"><strong>Method:</strong> Hybrid immersion + speaking marathons</div>
+          <div><span class="badge-result">Result: Confident everyday & work communication</span></div>
+          <div class="case-detail">✅ 89% score increase in comprehension tests.</div>
+        </div>
+        <div class="case-item reveal">
+          <div class="case-title">💼 Business English leap: B1 → C1 (Advanced)</div>
+          <div class="case-detail"><strong>Duration:</strong> 9 months executive program</div>
+          <div class="case-detail"><strong>Outcome:</strong> Pitch perfect presentations, advanced negotiation</div>
+          <div><span class="badge-result">Promoted to international role</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="reviews">
+    <div class="container">
+      <h2 class="section-title reveal">What Students Say</h2>
+      <div class="reviews-grid">
+        <div class="review-card reveal">
+          <div class="quote">"English Dragon completely reinvented my speaking skills. The innovative use of AI for instant feedback felt like having a personal coach 24/7. I gained confidence and my TOEFL score jumped 15 points."</div>
+          <div class="reviewer">— Elena R., Product Manager</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="quote">"I was stuck at intermediate for years. The teacher's approach — gamified real-life challenges & neuro-learning — unlocked my fluency. Now I express ideas spontaneously. Life changing."</div>
+          <div class="reviewer">— Marco D., Software Engineer</div>
+        </div>
+        <div class="review-card reveal">
+          <div class="quote">"High professionalism, yet warm mentoring. Every lesson pushes you forward. The results dashboard made my progress visible week by week. Best decision I've made for my career."</div>
+          <div class="reviewer">— Sofia L., Marketing Director</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" style="padding-bottom: 60px;">
+    <div class="container">
+      <div class="cta-section reveal" id="contact-form">
+        <h2 class="section-title" style="border-left-color: var(--teal-accent); margin-bottom: 20px;">Ready to elevate your English?</h2>
+        <p style="margin-bottom: 36px; font-size: 1.1rem;">Leave a request — the first trial lesson will show you the power of innovative methods.</p>
+        <form id="leadForm" action="#" method="post">
+          <div class="form-group">
+            <label for="name">Full name *</label>
+            <input type="text" id="name" name="name" placeholder="e.g., Alex Johnson" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address *</label>
+            <input type="email" id="email" name="email" placeholder="hello@example.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message / goals *</label>
+            <textarea id="message" name="message" rows="3" placeholder="Tell me about your current level and aspirations..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="background: var(--teal-accent); background: linear-gradient(105deg, #2F9B8F, #237b70); box-shadow: 0 4px 12px rgba(47,155,143,0.3);">Send request →</button>
+          <p style="margin-top: 24px; font-size: 0.8rem; color: #8CA0C0;">No spam, only useful insights. Your data is safe.</p>
+        </form>
+        <div id="formFeedback" style="margin-top: 20px; font-weight: 500;"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer">
+      <div class="contacts">
+        <a href="mailto:dragon@englishdragon.com">📧 dragon@englishdragon.com</a>
+        <a href="tel:+44123456789">📞 +44 20 7946 0138</a>
+        <a href="#" target="_blank">💬 Telegram</a>
+        <a href="#" target="_blank">📱 WhatsApp</a>
+      </div>
+      <div class="legal">
+        © 2026 English Dragon. All rights reserved. Empowering fluency with innovation.
+      </div>
+    </div>
+  </footer>
 
   <script>
-    // Скрипты для анимаций и формы (без изменений)
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
